@@ -1,0 +1,135 @@
+<!DOCTYPE html>         
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AcademicResult.In</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+  }
+  .container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  h1 {
+    text-align: center;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  input[type="text"], input[type="number"], input[type="submit"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  #result {
+    margin-top: 20px;
+    display: none;
+  }
+</style>
+</head>
+<body>
+  <br></br>
+  <center><img src="https://see.fontimg.com/api/renderfont4/OV148/eyJyIjoiZnMiLCJoIjo5NCwidyI6MjAwMCwiZnMiOjQ3LCJmZ2MiOiIjMTEwQUY1IiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/QWNhZGVtaWMgUmVzdWx0Lklu/enthusiastic.png" width="90%"><br>
+  <font color=red><strong>Powered BY</strong>&nbsp;</font><font color=Green>|CBSE|&nbsp;&nbsp;&nbsp;&nbsp;• ICSE&nbsp;&nbsp;&nbsp;&nbsp;|UP BOARD|<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Tution Institutes</font>
+  </center>
+  <br><hr color=pink size=4>
+   
+<div class="container">
+  <h1>Check Your Result</h1>
+  <form id="resultForm">
+    <input type="text" id="name" placeholder="Enter Your Name" required>
+    <input type="number" id="rollNumber" placeholder="Enter Your Roll Number" required>
+    <input type="submit" value="Check Result">
+  </form>
+  <div id="result">
+    <h2>Result:</h2>
+    <p id="resultData"></p>
+  </div>
+</div>
+
+<script>
+  document.getElementById("resultForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    
+    // Get the values entered by the user
+    var name = document.getElementById("name").value.trim();
+    var rollNumber = document.getElementById("rollNumber").value.trim();
+    
+    // Array of student records (assuming each record is an object with name, rollNumber, and progressReport properties)
+    var students = [
+      { name: "Satyam Singh Yadav", rollNumber: "213146", progressReport: "https://ssybrand.github.io/SSY-technologies-pdf/#12345" },
+      { name: "Anurag Yadav", rollNumber: "314150", progressReport: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVTR-VCiXu_4TCkek1rgfMAiP2GVO4I4JHtsEYfQsCG42MplZrjeoMrhk&s=10" },
+      { name: "Sumit Yadav", rollNumber: "678", progressReport: "https://ssybrand.github.io/SSY-technologies-pdf/#12345" },
+      { name: "Nancy Yadav", rollNumber: "3211", progressReport: "" },
+      { name: "Sumit Yadav", rollNumber: "404414", progressReport: "https://ssybrand.github.io/SSY-technologies-pdf/#12345" },
+      // Add more records here...
+      { name: "John Doe", rollNumber: "789", progressReport: "https://ssybrand.github.io/SSY-technologies-pdf/#12345" },
+      { name: "Jane Smith", rollNumber: "1011", progressReport: "https://ssybrand.github.io/SSY-technologies-pdf/#12345" },
+      { name: "Alice Johnson", rollNumber: "1213", progressReport: "https://ssybrand.github.io/SSY-technologies-pdf/#12345" },
+      { name: "Bob Williams", rollNumber: "1415", progressReport: "https://ssybrand.github.io/SSY-technologies-pdf/#12345" },
+      { name: "Charlie Brown", rollNumber: "1617", progressReport: "https://ssybrand.github.io/SSY-technologies-pdf/#12345" },
+      // Add more records as needed
+    ];
+    
+    // Check if entered name and roll number match any of the student records
+    var match = students.find(student => student.name.toLowerCase() === name.toLowerCase() && student.rollNumber === rollNumber);
+    
+    if (match) {
+      // If match found, show the progress report
+      if (match.progressReport !== "") {
+        window.open(match.progressReport, "_blank");
+        document.getElementById("resultData").innerText = "Data Successful";
+      } else {
+        document.getElementById("resultData").innerText = "No progress report available";
+      }
+    } else {
+      // If no match found, show "Invalid Details"
+      document.getElementById("resultData").innerText = "Invalid Details";
+    }
+
+    // Show the result div
+    document.getElementById("result").style.display = "block";
+  });
+</script>
+<br></br>
+<center><font color=Red size=4><strong>Note&nbsp;:</strong></font>&nbsp;<font color=brown><b>The Results Data is Provideing by Authorities Of School if Face any  problem in Report card then please contact on your school Administrators As soon as possible.</b></strong></font></center>
+<br></br>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        footer {
+            background: linear-gradient(to right, #ff4d4d, #4d79ff, #4dff4d);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
+   <footer>
+       <p><font color=aqua><center><strong> © Academic Result.In &nbsp;❣️</strong ></center></p></font>
+        <p><center>• Design interface BY :- Sattu technologies ✓</p></center>
+    </footer>
+</body>
+</html>
